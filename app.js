@@ -1,4 +1,5 @@
 const { Client, IntentsBitField } =  require('discord.js');
+require('dotenv').config()
 
 const client = new Client ({
   intents: [
@@ -10,6 +11,8 @@ const client = new Client ({
 
 
 });
+
+
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -29,7 +32,7 @@ client.on('interactionCreate', async (interaction) => {
     const member = interaction.member;
     const channel = member?.voice.channel;
     if (!channel) {
-      return message.reply('You must be in a voice channel to use this command.');
+      return interaction.reply('You must be in a voice channel to use this command.');
     }
 
     // Get the members in the voice channel
@@ -49,4 +52,4 @@ client.on('interactionCreate', async (interaction) => {
   }
 });
 
-client.login("MTEwMjE5NzQzMTUyNzAxNDQ0MA.Gu7iNa.PPyNKk3NKu9FbzesC7P65TdplJ748Rdx3gu5nI");
+client.login(process.env.DISCORD_TOKEN);

@@ -9,7 +9,7 @@ const commands = [
     },
 ];
 
-const rest = new REST({version: '10'}).setToken("MTEwMjE5NzQzMTUyNzAxNDQ0MA.Gu7iNa.PPyNKk3NKu9FbzesC7P65TdplJ748Rdx3gu5nI");
+const rest = new REST({version: '10'}).setToken(process.env.DISCORD_TOKEN);
 
 (async () => {
     try {
